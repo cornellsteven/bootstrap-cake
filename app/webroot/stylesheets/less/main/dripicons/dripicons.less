@@ -1,0 +1,692 @@
+// Bootstrap 2.0 sprites.less reset
+[class^="glyphicon-"],
+[class*=" glyphicon-"] {
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  margin-top: 0;
+}
+
+// More sprites.less reset
+.icon-white,
+.nav-pills > .active > a > [class^="icon-"],
+.nav-pills > .active > a > [class*=" icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class*=" icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"],
+.dropdown-submenu:hover > a > [class^="icon-"],
+.dropdown-submenu:hover > a > [class*=" icon-"] {
+  background-image: none;
+}
+
+
+// keeps Bootstrap styles with and without icons the same
+.btn, .nav {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    &.icon-large { line-height: .9em; }
+    &.icon-spin { display: inline-block; }
+  }
+}
+.nav-tabs, .nav-pills {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    &, &.icon-large { line-height: .9em; }
+  }
+}
+.btn {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    &.pull-left, &.pull-right {
+      &.icon-2x { margin-top: .18em; }
+    }
+    &.icon-spin.icon-large { line-height: .8em; }
+  }
+}
+.btn.btn-small {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    &.pull-left, &.pull-right {
+      &.icon-2x { margin-top: .25em; }
+    }
+  }
+}
+.btn.btn-large {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    margin-top: 0; // overrides bootstrap default
+    &.pull-left, &.pull-right {
+      &.icon-2x { margin-top: .05em; }
+    }
+    &.pull-left.icon-2x { margin-right: .2em; }
+    &.pull-right.icon-2x { margin-left: .2em; }
+  }
+}
+
+// Fixes alignment in nav lists
+.nav-list [class^="icon-"],
+.nav-list [class*=" icon-"] {
+  line-height: inherit;
+}
+
+/////////////////////////////////
+// START MAIN DRIPICONS STYLES //
+/////////////////////////////////
+@DripiconsPath:    "../less/main/dripicons/font";
+@font-face {
+  font-family: "dripicons";
+  src:url("@{DripiconsPath}/dripicons.eot");
+  src:url("@{DripiconsPath}/dripicons.eot?#iefix") format("embedded-opentype"),
+    url("@{DripiconsPath}/dripicons.ttf") format("truetype"),
+    url("@{DripiconsPath}/dripicons.svg#dripicons") format("svg"),
+    url("@{DripiconsPath}/dripicons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[class^="icon-"]:before,
+[class^="glyphicon-"]:before,
+[class*=" icon-"]:before,
+[class*=" glyphicon-"]:before {
+  font-family: "dripicons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none !important;
+  speak: none;
+  display: inline-block;
+  text-decoration: none;
+  width: 1em;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  
+  &.icon-large {
+    width: 20/14em;
+  }
+}
+
+.icon-large:before {
+  vertical-align: -10%;
+  font-size: 4/3em;
+}
+
+/////////////////////////////////////////////
+// EXTRA STYLING BORROWED FROM FONTAWESOME //
+/////////////////////////////////////////////
+
+// Animated rotating icon
+.icon-spin {
+	display: inline-block;
+	-moz-animation: spin 2s infinite linear;
+	-o-animation: spin 2s infinite linear;
+	-webkit-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}
+
+/* Prevent stack and spinners from being taken inline when inside a link */
+a .icon-spin {
+	display: inline-block;
+	text-decoration: none;
+}
+
+@-moz-keyframes spin {
+	0% { -moz-transform: rotate(0deg); }
+	100% { -moz-transform: rotate(359deg); }
+}
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(359deg); }
+}
+@-o-keyframes spin {
+	0% { -o-transform: rotate(0deg); }
+	100% { -o-transform: rotate(359deg); }
+}
+@-ms-keyframes spin {
+	0% { -ms-transform: rotate(0deg); }
+	100% { -ms-transform: rotate(359deg); }
+}
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(359deg); }
+}
+
+/* Icon rotations and mirroring */
+.icon-rotate-90:before {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+
+.icon-rotate-180:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+
+.icon-rotate-270:before {
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	transform: rotate(270deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.icon-flip-horizontal:before {
+	-webkit-transform: scale(-1, 1);
+	-moz-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+}
+
+.icon-flip-vertical:before {
+	-webkit-transform: scale(1, -1);
+	-moz-transform: scale(1, -1);
+	-ms-transform: scale(1, -1);
+	-o-transform: scale(1, -1);
+	transform: scale(1, -1);
+}
+
+// ensure rotation occurs inside anchor tags
+a {
+	.icon-rotate-90, .icon-rotate-180, .icon-rotate-270, .icon-flip-horizontal, .icon-flip-vertical {
+		&:before { display: inline-block; }
+	}
+}
+
+// Variables
+@align-center: "\e000";
+@align-justify: "\e001";
+@align-left: "\e002";
+@align-right: "\e003";
+@arrow-down: "\e004";
+@arrow-left: "\e005";
+@arrow-thin-down: "\e006";
+@arrow-right: "\e007";
+@arrow-thin-left: "\e008";
+@arrow-thin-up: "\e009";
+@arrow-up: "\e010";
+@attachment: "\e011";
+@arrow-thin-right: "\e012";
+@code: "\e013";
+@cloud: "\e014";
+@chevron-right: "\e015";
+@chevron-up: "\e016";
+@chevron-down: "\e017";
+@chevron-left: "\e018";
+@camera: "\e019";
+@checkmark: "\e020";
+@calendar: "\e021";
+@clockwise: "\e022";
+@conversation: "\e023";
+@direction: "\e024";
+@cross: "\e025";
+@graph-line: "\e026";
+@gear: "\e027";
+@graph-bar: "\e028";
+@export: "\e029";
+@feed: "\e030";
+@folder: "\e031";
+@forward: "\e032";
+@folder-open: "\e033";
+@download: "\e034";
+@document-new: "\e035";
+@document-edit: "\e036";
+@document: "\e037";
+@gaming: "\e038";
+@graph-pie: "\e039";
+@heart: "\e040";
+@headset: "\e041";
+@help: "\e042";
+@information: "\e043";
+@loading: "\e044";
+@lock: "\e045";
+@location: "\e046";
+@lock-open: "\e047";
+@mail: "\e048";
+@map: "\e049";
+@media-loop: "\e050";
+@mobile-portrait: "\e051";
+@mobile-landscape: "\e052";
+@microphone: "\e053";
+@minus: "\e054";
+@message: "\e055";
+@menu: "\e056";
+@media-stop: "\e057";
+@media-shuffle: "\e058";
+@media-previous: "\e059";
+@media-play: "\e060";
+@media-next: "\e061";
+@media-pause: "\e062";
+@monitor: "\e063";
+@move: "\e064";
+@plus: "\e065";
+@phone: "\e066";
+@preview: "\e067";
+@print: "\e068";
+@media-record: "\e069";
+@music: "\e070";
+@home: "\e071";
+@question: "\e072";
+@reply: "\e073";
+@reply-all: "\e074";
+@return: "\e075";
+@retweet: "\e076";
+@search: "\e077";
+@view-thumb: "\e078";
+@view-list-large: "\e079";
+@view-list: "\e080";
+@upload: "\e081";
+@user-group: "\e082";
+@trash: "\e083";
+@user: "\e084";
+@thumbs-up: "\e085";
+@thumbs-down: "\e086";
+@tablet-portrait: "\e087";
+@tablet-landscape: "\e088";
+@tag: "\e089";
+@star: "\e090";
+@volume-full: "\e091";
+@volume-off: "\e092";
+@warning: "\e093";
+@window: "\e094";
+
+.icon-align-center:before {
+	content: @align-center;
+}
+
+.icon-align-justify:before {
+	content: @align-justify;
+}
+
+.icon-align-left:before {
+	content: @align-left;
+}
+
+.icon-align-right:before {
+	content: @align-right;
+}
+
+.icon-arrow-down:before {
+	content: @arrow-down;
+}
+
+.icon-arrow-left:before {
+	content: @arrow-left;
+}
+
+.icon-arrow-thin-down:before {
+	content: @arrow-thin-down;
+}
+
+.icon-arrow-right:before {
+	content: @arrow-right;
+}
+
+.icon-arrow-thin-left:before {
+	content: @arrow-thin-left;
+}
+
+.icon-arrow-thin-up:before {
+	content: @arrow-thin-up;
+}
+
+.icon-arrow-up:before {
+	content: @arrow-up;
+}
+
+.icon-attachment:before {
+	content: @attachment;
+}
+
+.icon-arrow-thin-right:before {
+	content: @arrow-thin-right;
+}
+
+.icon-code:before {
+	content: @code;
+}
+
+.icon-cloud:before {
+	content: @cloud;
+}
+
+.icon-chevron-right:before {
+	content: @chevron-right;
+}
+
+.icon-chevron-up:before {
+	content: @chevron-up;
+}
+
+.icon-chevron-down:before {
+	content: @chevron-down;
+}
+
+.icon-chevron-left:before {
+	content: @chevron-left;
+}
+
+.icon-camera:before {
+	content: @camera;
+}
+
+.icon-checkmark:before,
+.glyphicon-ok:before {
+	content: @checkmark;
+}
+
+.icon-calendar:before {
+	content: @calendar;
+}
+
+.icon-clockwise:before {
+	content: @clockwise;
+}
+
+.icon-conversation:before {
+	content: @conversation;
+}
+
+.icon-direction:before {
+	content: @direction;
+}
+
+.icon-cross:before,
+.glyphicon-remove:before {
+	content: @cross;
+}
+
+.icon-graph-line:before {
+	content: @graph-line;
+}
+
+.icon-gear:before {
+	content: @gear;
+}
+
+.icon-graph-bar:before {
+	content: @graph-bar;
+}
+
+.icon-export:before {
+	content: @export;
+}
+
+.icon-feed:before {
+	content: @feed;
+}
+
+.icon-folder:before {
+	content: @folder;
+}
+
+.icon-forward:before {
+	content: @forward;
+}
+
+.icon-folder-open:before {
+	content: @folder-open;
+}
+
+.icon-download:before {
+	content: @download;
+}
+
+.icon-document-new:before {
+	content: @document-new;
+}
+
+.icon-document-edit:before {
+	content: @document-edit;
+}
+
+.icon-document:before {
+	content: @document;
+}
+
+.icon-gaming:before {
+	content: @gaming;
+}
+
+.icon-graph-pie:before {
+	content: @graph-pie;
+}
+
+.icon-heart:before {
+	content: @heart;
+}
+
+.icon-headset:before {
+	content: @headset;
+}
+
+.icon-help:before {
+	content: @help;
+}
+
+.icon-information:before {
+	content: @information;
+}
+
+.icon-loading:before {
+	content: @loading;
+}
+
+.icon-lock:before {
+	content: @lock;
+}
+
+.icon-location:before {
+	content: @location;
+}
+
+.icon-lock-open:before {
+	content: @lock-open;
+}
+
+.icon-mail:before {
+	content: @mail;
+}
+
+.icon-map:before {
+	content: @map;
+}
+
+.icon-media-loop:before {
+	content: @media-loop;
+}
+
+.icon-mobile-portrait:before {
+	content: @mobile-portrait;
+}
+
+.icon-mobile-landscape:before {
+	content: @mobile-landscape;
+}
+
+.icon-microphone:before {
+	content: @microphone;
+}
+
+.icon-minus:before {
+	content: @minus;
+}
+
+.icon-message:before {
+	content: @message;
+}
+
+.icon-menu:before {
+	content: @menu;
+}
+
+.icon-media-stop:before {
+	content: @media-stop;
+}
+
+.icon-media-shuffle:before {
+	content: @media-shuffle;
+}
+
+.icon-media-previous:before {
+	content: @media-previous;
+}
+
+.icon-media-play:before {
+	content: @media-play;
+}
+
+.icon-media-next:before {
+	content: @media-next;
+}
+
+.icon-media-pause:before {
+	content: @media-pause;
+}
+
+.icon-monitor:before {
+	content: @monitor;
+}
+
+.icon-move:before {
+	content: @move;
+}
+
+.icon-plus:before {
+	content: @plus;
+}
+
+.icon-phone:before {
+	content: @phone;
+}
+
+.icon-preview:before {
+	content: @preview;
+}
+
+.icon-print:before {
+	content: @print;
+}
+
+.icon-media-record:before {
+	content: @media-record;
+}
+
+.icon-music:before {
+	content: @music;
+}
+
+.icon-home:before {
+	content: @home;
+}
+
+.icon-question:before {
+	content: @question;
+}
+
+.icon-reply:before {
+	content: @reply;
+}
+
+.icon-reply-all:before {
+	content: @reply-all;
+}
+
+.icon-return:before {
+	content: @return;
+}
+
+.icon-retweet:before {
+	content: @retweet;
+}
+
+.icon-search:before {
+	content: @search;
+}
+
+.icon-view-thumb:before {
+	content: @view-thumb;
+}
+
+.icon-view-list-large:before {
+	content: @view-list-large;
+}
+
+.icon-view-list:before {
+	content: @view-list;
+}
+
+.icon-upload:before {
+	content: @upload;
+}
+
+.icon-user-group:before {
+	content: @user-group;
+}
+
+.icon-trash:before {
+	content: @trash;
+}
+
+.icon-user:before {
+	content: @user;
+}
+
+.icon-thumbs-up:before {
+	content: @thumbs-up;
+}
+
+.icon-thumbs-down:before {
+	content: @thumbs-down;
+}
+
+.icon-tablet-portrait:before {
+	content: @tablet-portrait;
+}
+
+.icon-tablet-landscape:before {
+	content: @tablet-landscape;
+}
+
+.icon-tag:before {
+	content: @tag;
+}
+
+.icon-star:before {
+	content: @star;
+}
+
+.icon-volume-full:before {
+	content: @volume-full;
+}
+
+.icon-volume-off:before {
+	content: @volume-off;
+}
+
+.icon-warning:before {
+	content: @warning;
+}
+
+.icon-window:before {
+	content: @window;
+}

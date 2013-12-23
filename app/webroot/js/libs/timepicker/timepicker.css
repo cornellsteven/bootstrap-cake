@@ -1,0 +1,10 @@
+/*!
+* Timepicker Component for Twitter Bootstrap
+*
+* Copyright 2013 Joris de Wit
+*
+* Contributors https://github.com/jdewit/bootstrap-timepicker/graphs/contributors
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/.bootstrap-timepicker{position:relative}.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu{left:auto;right:0}.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:before{left:auto;right:12px}.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:after{left:auto;right:13px}.bootstrap-timepicker .add-on{cursor:pointer}.bootstrap-timepicker .add-on i{display:inline-block;width:16px;height:16px}.bootstrap-timepicker-widget{margin-top:0!important;-webkit-border-radius:0!important;-moz-border-radius:0!important;border-radius:0!important}.bootstrap-timepicker-widget.dropdown-menu{padding:2px 3px 2px 2px}.bootstrap-timepicker-widget.dropdown-menu.open{display:inline-block}.bootstrap-timepicker-widget table,.bootstrap-timepicker-widget table td{padding:0;margin:0}.bootstrap-timepicker-widget table{width:100%;margin:0}.bootstrap-timepicker-widget table td{width:30%;margin:0;padding:2px 4px;text-align:center}.bootstrap-timepicker-widget table td.separator{width:5%}.bootstrap-timepicker-widget table td span{width:100%}.bootstrap-timepicker-widget table td a{position:relative;border:1px transparent solid;width:100%;display:block;margin:0;padding:0;outline:0;color:#333}.bootstrap-timepicker-widget table td a:hover{text-decoration:none;background-color:#eee;border-color:#ddd}.bootstrap-timepicker-widget table td a i{color:#707070;font-size:18px}.bootstrap-timepicker-widget table td input{padding:2px;display:block;width:100%;margin:0 auto;text-align:center}.bootstrap-timepicker-widget .modal-content{padding:4px}

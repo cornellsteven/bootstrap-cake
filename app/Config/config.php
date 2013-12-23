@@ -8,7 +8,7 @@
 	}
 	
 	// Settings
-	// Configure::write('Company.name', 'Company Name, Inc.');
+	Configure::write('Company.name', 'Company Name, Inc.');
 	
 	// Directory where config.php and other config files are stored
 	define('CONFIG', ROOT . DS . 'app' . DS . 'Config' . DS);

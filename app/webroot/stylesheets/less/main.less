@@ -1,0 +1,348 @@
+// Import Bootstrap
+// --------------------------------------------------
+// Core variables and mixins
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+
+// Reset
+@import "bootstrap/normalize.less";
+@import "bootstrap/print.less";
+
+// Core CSS
+@import "bootstrap/scaffolding.less";
+@import "bootstrap/type.less";
+@import "bootstrap/code.less";
+@import "bootstrap/grid.less";
+@import "bootstrap/tables.less";
+@import "bootstrap/forms.less";
+@import "bootstrap/buttons.less";
+
+// Components
+@import "bootstrap/component-animations.less";
+/*@import "bootstrap/glyphicons.less";*/
+@import "bootstrap/dropdowns.less";
+@import "bootstrap/button-groups.less";
+@import "bootstrap/input-groups.less";
+@import "bootstrap/navs.less";
+@import "bootstrap/navbar.less";
+@import "bootstrap/breadcrumbs.less";
+@import "bootstrap/pagination.less";
+@import "bootstrap/pager.less";
+@import "bootstrap/labels.less";
+@import "bootstrap/badges.less";
+@import "bootstrap/jumbotron.less";
+@import "bootstrap/thumbnails.less";
+@import "bootstrap/alerts.less";
+@import "bootstrap/progress-bars.less";
+@import "bootstrap/media.less";
+@import "bootstrap/list-group.less";
+@import "bootstrap/panels.less";
+@import "bootstrap/wells.less";
+@import "bootstrap/close.less";
+
+// Components w/ JavaScript
+@import "bootstrap/modals.less";
+@import "bootstrap/tooltip.less";
+@import "bootstrap/popovers.less";
+@import "bootstrap/carousel.less";
+
+// Utility classes
+@import "bootstrap/utilities.less";
+@import "bootstrap/responsive-utilities.less";
+// --------------------------------------------------
+
+
+
+
+
+// Start Core Styles
+// --------------------------------------------------
+@brand-border-width: 1px;
+@brand-box-shadow: 2px 2px 0 1px #f7f7f7;
+// --------------------------------------------------
+
+@import "main/dripicons/dripicons.less";
+@import "main/alerts.less";
+
+.inline-block() {
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+.ellipsis() {
+	/* Ellipsis */
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// Bootstrap and User Agent customizations
+input:-webkit-autofill {
+	background-color: white !important;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+// Forms
+form {
+	input[type="text"],
+	input[type="password"],
+	select,
+	textarea {
+		.form-control;
+	}
+	
+	input[type="text"],
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="email"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="url"] {
+		padding: 7px 8px 5px 8px;
+		
+		border: solid @brand-border-width @input-border;
+		.box-shadow(none);
+		
+		&:focus {
+			.box-shadow(none);
+		}
+	}
+	
+	.input {
+		position: relative;
+		margin-top: 0;
+		margin-bottom: 12px;
+	}
+	
+	.input i.icon-addon {
+		position: absolute;
+		top: 50%;
+		right: @padding-base-horizontal;
+		width: 17px;
+		height: 17px;
+		margin-top: -8.5px;
+		
+		color: lighten(@input-color-placeholder, 12%);
+		font-size: 16px;
+		line-height: 16px;
+		text-align: center;
+		z-index: 3;
+	}
+	
+	.form-group {
+		margin-bottom: 0;
+	}
+	
+	label {
+		.ellipsis;
+		font-weight: 600;
+		color: #606060;
+	}
+	
+	fieldset {
+		padding: 25px 15px 15px 15px;
+		margin-bottom: 30px;
+		border: solid 1px #e0e0e0;
+		
+		legend {
+			width: auto;
+			margin: 0 0 0 -10px;
+			padding: 0 10px;
+			
+			color: @brand-primary;
+			font-size: 19px;
+			font-weight: 600;
+			text-transform: uppercase;
+			line-height: 19px;
+			
+			border: none;
+		}
+		
+		&.blur {
+			color: #aaa !important;
+			.opacity(0.7);
+			
+			legend {
+				color: #888;
+			}
+		}
+		
+		&.focus {
+			.opacity(1.0);
+		}
+	}
+	
+	textarea {
+		min-height: 80px;
+	}
+	
+	// Button groups
+	.btn-group {
+		label.btn {
+			margin-right: -1px;
+		}
+	}
+	.btn-groups {
+		.clearfix;
+		
+		.btn-group-input {
+			float: left;
+			margin-right: 20px;
+		}
+	}
+	
+	// Required
+	.required {
+		label:after {
+			content: ' *';
+			color: @brand-danger;
+		}
+	}
+	
+	// Error
+	.error {
+		position: relative;
+		
+		label {
+			color: @brand-danger;
+		}
+		input,
+		textarea {
+			border-color: @brand-danger;
+			
+			&:focus {
+				border-color: @brand-danger;
+				.box-shadow(0 0 5px 0 rgba(red(@brand-danger), green(@brand-danger), blue(@brand-danger), 0.5));
+			}
+		}
+		.error-message {
+			.inline-block;
+			.opacity(0);
+			position: absolute;
+			left: 0;
+			
+			margin-top: 8px;
+			padding: 3px 6px;
+			
+			font-size: 12px;
+			line-height: 15px;
+			color: white;
+			background: @brand-danger;
+			border-radius: 4px;
+			z-index: 9999;
+			.transition(opacity 150ms @cubic-bezier);
+			
+			&:before {
+				@size: 6px;
+				
+				content: '';
+				position: absolute;
+				top: -(@size);
+				left: 50%;
+				margin-left: -(@size);
+				width: 0;
+				height: 0;
+				
+				border-left: @size solid transparent;
+				border-right: @size solid transparent;
+				
+				border-bottom: @size solid @brand-danger;
+			}
+			
+			&.visible {
+				.opacity(1.0);
+			}
+		}
+		
+		&:hover,
+		&:focus {
+			.error-message {
+				.inline-block;
+			}
+		}
+	}
+	
+	.form-horizontal {
+		.form-group {
+			margin-bottom: 10px;
+		}
+		
+		&.form-condensed {
+			input[type="text"],
+			textarea {
+				height: 28px;
+				padding: 4px 6px;
+			}
+			.control-label {
+				line-height: 14px;
+			}
+			.form-group {
+				margin-bottom: 6px;
+			}
+		
+			// Totals
+			.totals {
+				label {
+					font-size: 21px;
+					line-height: 1.2;
+					overflow: visible;
+				}
+				input[type="text"] {
+					font-size: 21px;
+					height: auto;
+				}
+			}
+		}
+	}
+	
+	input.dollar-amount {
+		text-align: right;
+		font-family: 'verdana';
+	}
+}
+.form-fixed {
+	max-width: 670px;
+	min-width: 550px;
+	margin: 0 auto;
+}
+.help-inline,
+.help-block {
+	font-weight: normal;
+	color: @concrete;
+}
+
+#wrap {
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -60px;
+	padding: 0 0 60px;
+}
+
+#footer {
+	height: 60px;
+	background-color: #f5f5f5;
+}
+
+#main > .container {
+	padding: 60px 15px 0;
+}
+.container .credit {
+	margin: 20px 0;
+}
+
+#footer > .container {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+code {
+	font-size: 80%;
+}
