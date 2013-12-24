@@ -51,11 +51,13 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #428bca;
-@brand-success:         #5cb85c;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
-@brand-info:            #5bc0de;
+@brand-primary:         @belizeHole;
+@brand-secondary:       @pomegranate;
+@brand-success:         @wetAsphalt;
+@brand-warning:         @sunFlower;
+@brand-danger:          @alizarin;
+@brand-info:            @peterRiver;
+@brand-offwhite:		#f9f9f9;
 
 // Scaffolding
 // -------------------------
@@ -72,12 +74,12 @@
 // Typography
 // -------------------------
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  'Proxima Nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
+@font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
@@ -431,21 +433,21 @@
 // Form states and alerts
 // -------------------------
 
-@state-success-text:             #3c763d;
-@state-success-bg:               #dff0d8;
-@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
+@state-success-text:             @text-color;
+@state-success-bg:               #ffffff;
+@state-success-border:           @nephritis;
 
-@state-info-text:                #31708f;
-@state-info-bg:                  #d9edf7;
-@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
+@state-info-text:                @text-color;
+@state-info-bg:                  #ffffff;
+@state-info-border:              @peterRiver;
 
-@state-warning-text:             #8a6d3b;
-@state-warning-bg:               #fcf8e3;
-@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
+@state-warning-text:             @text-color;
+@state-warning-bg:               #ffffff;
+@state-warning-border:           @sunFlower;
 
-@state-danger-text:              #a94442;
-@state-danger-bg:                #f2dede;
-@state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
+@state-danger-text:              @text-color;
+@state-danger-bg:                #ffffff;
+@state-danger-border:            @alizarin;
 
 
 // Tooltips

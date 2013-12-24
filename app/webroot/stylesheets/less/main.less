@@ -51,19 +51,43 @@
 @import "bootstrap/responsive-utilities.less";
 // --------------------------------------------------
 
+// Site icons
+.Iconography() when (@brand-icons = 'Dripicons') {
+	@import "main/dripicons/dripicons.less";
+	
+	.alert-icon-font-family() { font-family: @Dripicons; }
+	.alert-info-icon() { content: @information; }
+	.alert-success-icon() { content: @checkmark; }
+	.alert-warning-icon() { content: @question; }
+	.alert-danger-icon() { content: @warning; }
+}
+.Iconography() when (@brand-icons = 'FontAwesome') {
+	@import "main/font-awesome/font-awesome.less";
+	
+	.alert-icon-font-family() { font-family: 'FontAwesome'; }
+	.alert-info-icon() { content: @fa-var-info-circle; }
+	.alert-success-icon() { content: @fa-var-check; }
+	.alert-warning-icon() { content: @fa-var-question-circle; }
+	.alert-danger-icon() { content: @fa-var-exclamation-triangle; }
+}
 
+// Variables
+// ----------------------------------------------------
+@brand-border-width				: 1px;
+@brand-box-shadow				: 2px 2px 0 1px #f7f7f7;
+@brand-alert-border-width		: 2px;
+@brand-icons					: 'Dripicons'; 		// Uncomment to use Dripicons (http://demo.amitjakhu.com/dripicons/)
+//@brand-icons					: 'FontAwesome'; 	// Uncomment to use Font Awesome (http://fortawesome.github.io/Font-Awesome/)
+// ----------------------------------------------------
 
-
-
-// Start Core Styles
-// --------------------------------------------------
-@brand-border-width: 1px;
-@brand-box-shadow: 2px 2px 0 1px #f7f7f7;
-// --------------------------------------------------
-
-@import "main/dripicons/dripicons.less";
+// Import custom less
 @import "main/alerts.less";
+@import "main/fonts.less";
 
+// Import Icon font
+.Iconography();
+
+// Utilitiy mixins
 .inline-block() {
 	display: -moz-inline-stack;
 	display: inline-block;
@@ -82,11 +106,6 @@
 // Bootstrap and User Agent customizations
 input:-webkit-autofill {
 	background-color: white !important;
-}
-
-html,
-body {
-	height: 100%;
 }
 
 // Forms
@@ -319,6 +338,95 @@ form {
 	color: @concrete;
 }
 
+// Alerts
+.alert:not(.alert-brief) {
+	@before-width: 80px;
+	@before-font-size: 26px;
+	@before-dim: 40px;
+	
+	position: relative;
+	border-width: @brand-alert-border-width;
+	
+	p, h1, h2, h3, h4, h5, h6 {
+		&:first-child {
+			margin-top: 0;
+			padding-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+	
+	&.alert-success,
+	&.alert-info,
+	&.alert-warning,
+	&.alert-danger {
+		padding-left: @before-width;
+		
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: (@before-width / 2) - (@before-dim / 2);
+			top: 50%;
+			margin-top: -(@before-font-size / 2);
+		
+			width: @before-dim;
+			height: @before-dim;
+				
+			color: @text-color;
+			font-size: @before-font-size;
+			text-align: center;
+			line-height: @before-font-size;
+			z-index: 99999;
+			
+			.alert-icon-font-family();
+		}
+	}
+	
+	&.alert-info {
+		&:before {
+			.alert-info-icon();
+			color: @state-info-border;
+		}
+	}
+	&.alert-success {
+		&:before {
+			.alert-success-icon();
+			color: @state-success-border;
+		}
+	}
+	&.alert-warning {
+		&:before {
+			.alert-warning-icon();
+			color: @state-warning-border;
+		}
+	}
+	&.alert-danger {
+		&:before {
+			.alert-danger-icon();
+			color: @state-danger-border;
+		}
+	}
+}
+
+// Code
+code {
+	font-size: 80%;
+}
+
+
+
+
+
+// Start Core (Structure) Styles
+// ----------------------------------------------------
+html,
+body {
+	height: 100%;
+}
+
 #wrap {
 	min-height: 100%;
 	height: auto;
@@ -341,8 +449,4 @@ form {
 #footer > .container {
 	padding-left: 15px;
 	padding-right: 15px;
-}
-
-code {
-	font-size: 80%;
 }

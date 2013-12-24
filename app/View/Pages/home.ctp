@@ -14,11 +14,8 @@ endif;
 App::uses('Debugger', 'Utility');
 ?>
 <div class="page-header">
-	<h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
+	<h2><?php echo __d('cake_dev', 'You’ve successfully installed CakePHP %s.', Configure::version()); ?></h2>
 </div>
-<p>
-	<a href="http://cakephp.org/changelogs/<?php echo Configure::version(); ?>"><?php echo __d('cake_dev', 'Read the changelog'); ?> </a>
-</p>
 <?php
 if (Configure::read('debug') > 0):
 	Debugger::checkSecurityKeys();
