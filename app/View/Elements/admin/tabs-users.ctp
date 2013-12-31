@@ -3,5 +3,5 @@
 <?php foreach ($group_tab_names as $key => $value): ?>
 	<li<?php echo $group == $key ? ' class="active"' : ''; ?>><?php echo $this->Html->link($value, array('controller' => 'users', 'action' => 'index', $key), array('escape' => false)); ?></li>
 <?php endforeach ?>
-	<li class="action"><a data-toggle="modal" href="#AddUserModal" class="btn btn-default btn-sm pull-right"><i class="icon-plus"></i> New User</a></li>
+	<li class="action"><a data-toggle="modal" href="#AddUserModal"><i class="icon-plus"></i> New User</a></li>
 </ul>

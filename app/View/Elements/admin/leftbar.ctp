@@ -12,6 +12,7 @@
 <aside id="leftbar">
 	<nav>
 		<ul id="leftnav">
+			<?php echo $this->Nav->addLink('/', 'arrow-thin-left', 'Return Home'); ?>
 			<?php // echo $this->Nav->brand('Admin'); // Pass it the html for the "brand" li ?>
 			<?php echo $this->Nav->addItem('users', 'menu', 'Dashboard', 'View your Dashboard', 'dashboard'); ?>
 			<?php echo $this->Nav->addItem('users', 'user-group', 'User Accounts'); ?>
