@@ -96,22 +96,16 @@ class AppController extends Controller {
 		
 		$this->Auth->allow();
 		
-		// If this is an admin page, Deny all non-logged-in users
+		// If this is an admin page, Deny all non-logged-in users and change layout to 'Admin'
 		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == ADMIN) {
-			$this->layout = 'admin';
-			$this->denyAccess(2);
-			
 			if (ADMIN !== 'admin') {
 				$this->request->params['action'] = str_replace(ADMIN . '_', 'admin_', $this->request->params['action']);
 				$this->view = str_replace(ADMIN . '_', 'admin_', $this->request->params['action']);
 			}
 			
-			/**
-			 * Uncomment the following line if you have separate admin stylesheets
-			 */
-			// Configure::write('App.cssBaseUrl', 'stylesheets/admin/css/');
-			
 			$this->Auth->deny();
+			$this->layout = 'admin';
+			// Configure::write('App.cssBaseUrl', 'stylesheets/admin/css/');
 		}
 		
 		// Populate a variable with User details and make it available to views
@@ -159,19 +153,9 @@ class AppController extends Controller {
 		}
 	}
 	
-	public function denyAccess($level = 1) {
-		$denied =  !$this->Auth->user() || $this->Auth->user('group_id') > $level;
-		
-		if ($denied) {
-			if ($this->Auth->user('is_admin')) {
-				$this->redirect(array('controller' => 'pages', 'action' => 'unauthorized', ADMIN => true));
-			} else {
-				if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == ADMIN) {
-					$this->redirect('/');
-				} else {
-					$this->render('/Pages/unauthorized');
-				}
-			}
+	public function denyAccess() {
+		if ($this->Auth->user('group_id') != 1) {
+			$this->redirect('/' . ADMIN);
 		}
 	}
 	

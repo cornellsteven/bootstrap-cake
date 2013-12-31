@@ -13,8 +13,8 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><?php echo $this->Html->link('Home', '/'); ?></li>
-					<li><?php echo $this->Html->link('Events', array('controller' => 'events')); ?></li>
-					<li><?php echo $this->Html->link('Venues', array('controller' => 'venues')); ?></li>
+					<li><?php echo $this->Html->link('About Us', '#'); ?></li>
+					<li><?php echo $this->Html->link('Contact Us', '#'); ?></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 						<ul class="dropdown-menu">

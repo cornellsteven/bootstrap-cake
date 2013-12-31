@@ -12,7 +12,7 @@ class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		
-		$this->Auth->allow('admin_add');
+		// $this->Auth->allow('admin_add');
 	}
 	
 	
