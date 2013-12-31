@@ -105,7 +105,6 @@ class AppController extends Controller {
 			
 			$this->Auth->deny();
 			$this->layout = 'admin';
-			// Configure::write('App.cssBaseUrl', 'stylesheets/admin/css/');
 		}
 		
 		// Populate a variable with User details and make it available to views

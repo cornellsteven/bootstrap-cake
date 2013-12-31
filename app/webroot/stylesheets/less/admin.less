@@ -1,0 +1,85 @@
+// Import Shared Styles (bootstrap, etc)
+// --------------------------------------------------
+@import "bootstrap/variables-admin.less";
+@import 'shared.less';
+
+// Start Core (Structure) Styles
+// ----------------------------------------------------
+.container {
+	width: 100%;
+}
+
+@leftbar-width: 150px;
+aside#leftbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: @leftbar-width;
+	background: #111111;
+	
+	.brand {
+		margin: 20px 10px 10px 10px;
+	}
+	
+	ul#leftnav,
+	ul#leftnav li {
+		display: block;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	ul#leftnav {
+		li {
+			text-align: left;
+			font-size: 14px;
+			
+			a {
+				padding: 6px 10px;
+				color: white;
+				text-decoration: none;
+
+				.ellipsis;
+				
+				&:hover {
+					background: @brand-primary;
+				}
+			}
+			i {
+				display: inline-block;
+				text-align: center;
+				width: 14px;
+				margin-right: 6px;
+			}
+			&.active a {
+				margin: 4px 0;
+				margin-left: 4px;
+				padding-left: 6px;
+				color: black;
+				background: @body-bg;
+				.border-left-radius(3px);
+			}
+			&:first-child a {
+				padding-top: 10px;
+			}
+		
+			&.brand {
+				padding: 10px;
+				color: white;
+				font-size: 24px;
+				font-weight: 100;
+				background: lighten(black, 15%);
+			}
+		}
+	}
+}
+
+#wrap {
+	min-width: 940px - @leftbar-width;
+	padding: 0 0 0 (@leftbar-width);
+}
+
+#main {
+	padding-top: 20px;
+}
