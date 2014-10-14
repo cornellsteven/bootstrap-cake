@@ -54,20 +54,20 @@
 .Iconography() when (@brand-icons = 'Dripicons') {
     @import "main/dripicons/dripicons.less";
     
-    .alert-icon-font-family() { font-family: @Dripicons; }
-    .alert-info-icon() { content: @information; }
-    .alert-success-icon() { content: @checkmark; }
-    .alert-warning-icon() { content: @question; }
-    .alert-danger-icon() { content: @warning; }
+    .alert-icon-font-family() {     font-family: @Dripicons; }
+    .alert-info-icon() {            content: @information; }
+    .alert-success-icon() {         content: @checkmark; }
+    .alert-warning-icon() {         content: @question; }
+    .alert-danger-icon() {          content: @warning; }
 }
 .Iconography() when (@brand-icons = 'FontAwesome') {
-    @import "main/font-awesome/font-awesome.less";
+    @import "fontawesome/less/font-awesome.less";
     
-    .alert-icon-font-family() { font-family: 'FontAwesome'; }
-    .alert-info-icon() { content: @fa-var-info-circle; }
-    .alert-success-icon() { content: @fa-var-check; }
-    .alert-warning-icon() { content: @fa-var-question-circle; }
-    .alert-danger-icon() { content: @fa-var-exclamation-triangle; }
+    .alert-icon-font-family() {     font-family: 'FontAwesome'; }
+    .alert-info-icon() {            content: @fa-var-info-circle; }
+    .alert-success-icon() {         content: @fa-var-check; }
+    .alert-warning-icon() {         content: @fa-var-question-circle; }
+    .alert-danger-icon() {          content: @fa-var-exclamation-triangle; }
 }
 
 // Variables
@@ -75,8 +75,8 @@
 @brand-border-width         : 1px;
 @brand-box-shadow           : 2px 2px 0 1px #f7f7f7;
 @brand-alert-border-width   : 2px;
-@brand-icons                : 'Dripicons';         // Uncomment to use Dripicons (http://demo.amitjakhu.com/dripicons/)
-//@brand-icons              : 'FontAwesome';     // Uncomment to use Font Awesome (http://fortawesome.github.io/Font-Awesome/)
+//@brand-icons                : 'Dripicons';         // Uncomment to use Dripicons (http://demo.amitjakhu.com/dripicons/)
+@brand-icons                : 'FontAwesome';     // Uncomment to use Font Awesome (http://fortawesome.github.io/Font-Awesome/)
 // ----------------------------------------------------
 
 // Import custom less
