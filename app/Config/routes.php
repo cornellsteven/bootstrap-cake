@@ -19,13 +19,13 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-	
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-	Router::connect('/login', array('controller' => 'users', 'action' => 'login', ADMIN => false));
-	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', ADMIN => false));
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
-	Router::connect('/' . ADMIN, array('controller' => 'users', 'action' => 'index', ADMIN => true));
-	Router::connect('/' . ADMIN . '/clearcache', array('controller' => 'users', 'action' => 'clearcache', ADMIN => true));
-	
-	CakePlugin::routes();
-	require CAKE . 'Config' . DS . 'routes.php';
+    
+    Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+    Router::connect('/login', array('controller' => 'users', 'action' => 'login', ADMIN => false));
+    Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', ADMIN => false));
+    Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+    Router::connect('/' . ADMIN, array('controller' => 'users', 'action' => 'index', ADMIN => true));
+    Router::connect('/' . ADMIN . '/clearcache', array('controller' => 'users', 'action' => 'clearcache', ADMIN => true));
+    
+    CakePlugin::routes();
+    require CAKE . 'Config' . DS . 'routes.php';
