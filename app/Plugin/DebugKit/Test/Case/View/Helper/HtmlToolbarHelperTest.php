@@ -127,6 +127,37 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 	}
 
 /**
+ * Test that cyclic references can be printed.
+ *
+ * @return void
+ */
+	public function testMakeNeatArrayCyclicObjects() {
+		$a = new StdClass;
+		$b = new StdClass;
+		$a->child = $b;
+		$b->parent = $a;
+
+		$in = array('obj' => $a);
+		$result = $this->Toolbar->makeNeatArray($in);
+		$expected = array(
+			array('ul' => array('class' => 'neat-array depth-0')),
+			'<li', '<strong', 'obj', '/strong', '(object)',
+			array('ul' => array('class' => 'neat-array depth-1')),
+			'<li', '<strong', 'child', '/strong', '(object)',
+			array('ul' => array('class' => 'neat-array depth-2')),
+			'<li', '<strong', 'parent', '/strong',
+			'(object) - recursion',
+			'/li',
+			'/ul',
+			'/li',
+			'/ul',
+			'/li',
+			'/ul'
+		);
+		$this->assertTags($result, $expected);
+	}
+
+/**
  * Test Neat Array formatting
  *
  * @return void
@@ -393,6 +424,47 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 	public function testPanelEnd() {
 		$result = $this->Toolbar->panelEnd();
 		$this->assertNull($result);
+	}
+
+/**
+ * Test generating links for query explains.
+ *
+ * @return void
+ */
+	public function testExplainLink() {
+		$sql = 'SELECT * FROM tasks';
+		$result = $this->Toolbar->explainLink($sql, 'default');
+		$expected = array(
+			'form' => array('action' => '/debug_kit/toolbar_access/sql_explain', 'method' => 'post',
+				'accept-charset' => 'utf-8', 'id'),
+			array('div' => array('style' => 'display:none;')),
+			array('input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST')),
+			'/div',
+			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][ds]', 'value' => 'default')),
+			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][sql]', 'value' => $sql)),
+			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][hash]', 'value')),
+			array('input' => array('class' => 'sql-explain-link', 'type' => 'submit', 'value' => 'Explain')),
+			'/form',
+		);
+		$this->assertTags($result, $expected);
+
+		$sql = 'SELECT *
+			FROM tasks';
+		$result = $this->Toolbar->explainLink($sql, 'default');
+		$sql = str_replace(array("\n", "\t"), ' ', $sql);
+		$expected = array(
+			'form' => array('action' => '/debug_kit/toolbar_access/sql_explain', 'method' => 'post',
+				'accept-charset' => 'utf-8', 'id'),
+			array('div' => array('style' => 'display:none;')),
+			array('input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST')),
+			'/div',
+			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][ds]', 'value' => 'default')),
+			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][sql]', 'value' => $sql)),
+			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][hash]', 'value')),
+			array('input' => array('class' => 'sql-explain-link', 'type' => 'submit', 'value' => 'Explain')),
+			'/form',
+		);
+		$this->assertTags($result, $expected);
 	}
 
 }

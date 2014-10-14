@@ -21,7 +21,6 @@ App::uses('Security', 'Utility');
  * Injects the toolbar elements into HTML layouts.
  * Contains helper methods for
  *
- *
  * @since         DebugKit 0.1
  */
 class HtmlToolbarHelper extends ToolbarHelper {
@@ -50,6 +49,10 @@ class HtmlToolbarHelper extends ToolbarHelper {
  * @return string
  */
 	public function makeNeatArray($values, $openDepth = 0, $currentDepth = 0, $doubleEncode = false) {
+		static $printedObjects = null;
+		if ($currentDepth === 0) {
+			$printedObjects = new SplObjectStorage();
+		}
 		$className = "neat-array depth-$currentDepth";
 		if ($openDepth > $currentDepth) {
 			$className .= ' expanded';
@@ -90,7 +93,24 @@ class HtmlToolbarHelper extends ToolbarHelper {
 				$value = 'function';
 			}
 
-			if (($value instanceof ArrayAccess || $value instanceof Iterator || is_array($value) || is_object($value)) && !empty($value)) {
+			$isObject = is_object($value);
+			if ($isObject && $printedObjects->contains($value)) {
+				$isObject = false;
+				$value = ' - recursion';
+			}
+
+			if ($isObject) {
+				$printedObjects->attach($value);
+			}
+
+			if (
+				(
+				$value instanceof ArrayAccess ||
+				$value instanceof Iterator ||
+				is_array($value) ||
+				$isObject
+				) && !empty($value)
+			) {
 				$out .= $this->makeNeatArray($value, $openDepth, $nextDepth, $doubleEncode);
 			} else {
 				$out .= h($value, $doubleEncode);
@@ -187,6 +207,7 @@ class HtmlToolbarHelper extends ToolbarHelper {
 		if (!preg_match('/^[\s()]*SELECT/i', $sql)) {
 			return '';
 		}
+		$sql = str_replace(array("\n", "\t"), ' ', $sql);
 		$hash = Security::hash($sql . $connection, 'sha1', true);
 		$url = array(
 			'plugin' => 'debug_kit',
