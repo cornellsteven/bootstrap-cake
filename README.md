@@ -2,10 +2,13 @@
 
 Just a starting point for sites I build using CakePHP, Twitter Bootstrap, Font Awesome, js plugins, etc.
 
---------------------------
+## Versions
 
-| Software		| Version |
-| --------------| ------- |
-| CakePHP		| 2.4.3   |
-| Bootstrap		| 3.0.3   |
-| FontAwesome	| 4.0.3   |
+| Technology  | Version  |
+| ----------- | -------: |
+| Project     | 2.0.0    |
+| CakePHP     | 2.5.5    |
+| Bootstrap   | 3.2.0    |
+| FontAwesome | 4.2.0    |
+| jQuery      | 1.11.1   |
+| modernizr   | 2.6.2    |
