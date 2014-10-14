@@ -47,8 +47,8 @@ $title = isset($title_for_layout) ? $title_for_layout : 'Untitled';
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write("<script src='<?php echo $this->Html->url('/js/libs/jquery-1.10.2.min.js'); ?>'>\x3C/script>")</script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write("<script src='<?php echo $this->Html->url('/js/libs/jquery-1.11.1.min.js'); ?>'>\x3C/script>")</script>
         <script>var URL = '<?php echo $this->Html->url('/'); ?>';</script>
         
         <?php echo $this->Html->script('plugins'); ?>
