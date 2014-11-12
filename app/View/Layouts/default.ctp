@@ -11,7 +11,7 @@ $title = isset($title_for_layout) ? $title_for_layout : 'Untitled';
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <meta name="description" content="">
         <meta name="author" content="">
         
@@ -57,7 +57,7 @@ $title = isset($title_for_layout) ? $title_for_layout : 'Untitled';
         
         <?php echo $this->fetch('script'); ?>
         
-        <?php echo $this->Html->script('libs/bootstrap.min'); ?>
+        <?php echo $this->Html->script('libs/bootstrap-3.3.1.min'); ?>
         
         <?php echo $this->Html->script('main'); ?>
         
